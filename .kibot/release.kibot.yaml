@@ -1,0 +1,23 @@
+kibot:
+  version: 1
+
+preflight:
+  run_erc: true
+  run_drc: true
+  check_zone_fills: true
+  ignore_unconnected: false
+  update_xml: true
+  set_text_variables:
+    - name: REVISION
+      command: echo "$revision"
+      
+global:
+  output: '%f_%D-%i.%x'
+
+outputs:
+  - name: model
+    comment: 3D model STEP export
+    type: step
+  - name: bom
+    comment: Interactive HTML BOM
+    type: ibom

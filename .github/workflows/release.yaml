@@ -1,0 +1,36 @@
+name: "Release"
+on:
+  release:
+    types: [published]
+
+jobs:
+  ecad:
+    env:
+      project: SixnavPrototype
+      input: src
+      output: out
+      config: .kibot/release.kibot.yaml
+      revision: ${{ github.event.release.tag_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate documentation and fabrication files
+        uses: INTI-CMNB/KiBot@v2_k6
+        with:
+          config: ${{ env.config }}
+          dir: ${{ env.output }}
+          schema: ${{ env.input }}/${{ env.project }}.kicad_sch
+          board: ${{ env.input }}/${{ env.project }}.kicad_pcb
+
+      - name: Upload release files
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: |
+            ${{ env.output }}/**/*
+            ${{ env.input }}/${{ env.project }}.kicad_sch
+            ${{ env.input }}/${{ env.project }}.kicad_pcb
