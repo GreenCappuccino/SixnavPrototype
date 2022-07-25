@@ -29,7 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install cadquery==2.2.0b0
       - name: Build models
-        run: for f in ${{ env.config }}/m_*.py; do python "$f"; done
+        run: for f in ${{ env.mcad_dir }}/m_*.py; do python "$f"; done
       # Run KiBot release tasks
       - name: Generate KiBot outputs
         uses: INTI-CMNB/KiBot@v2_k6
