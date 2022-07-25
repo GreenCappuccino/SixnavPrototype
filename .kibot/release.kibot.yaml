@@ -18,6 +18,3 @@ outputs:
   - name: model
     comment: 3D model STEP export
     type: step
-  - name: bom
-    comment: Interactive HTML BOM
-    type: ibom
