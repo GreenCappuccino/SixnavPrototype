@@ -8,6 +8,8 @@ jobs:
     env:
       # General
       revision: ${{ github.event.release.tag_name }}
+      # CadQuery variables
+      mcad_dir: src/lib/mcad
       # KiBot variables
       project: SixnavPrototype
       input: src
@@ -27,7 +29,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install cadquery==2.2.0b0
       - name: Build models
-        run: for f in m_*.py; do python "$f"; done
+        run: for f in ${{ env.config }}/m_*.py; do python "$f"; done
       # Run KiBot release tasks
       - name: Generate KiBot outputs
         uses: INTI-CMNB/KiBot@v2_k6
