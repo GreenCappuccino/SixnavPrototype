@@ -61,7 +61,9 @@ p = p.faces("+Z") \
              (0, -d_height/2), \
              (d_tht_spacing, -d_height/2) \
          ]) \
-     .hole(d_tht_diameter)
+     .circle(d_tht_diameter/2) \
+     .cutBlind(-d_thickness)
+     
 ## USB Connector
 p = p.faces("+Z") \
      .workplane(origin=(0,d_height/2-d_usb_depth/2+d_usb_offset,0)) \
