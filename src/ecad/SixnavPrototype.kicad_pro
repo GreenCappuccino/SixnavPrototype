@@ -393,7 +393,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "../build/SixnavPrototype.step",
+      "step": "../../build/SixnavPrototype.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
