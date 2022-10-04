@@ -1,4 +1,4 @@
-![sixnav banner](https://user-images.githubusercontent.com/28021387/182257492-361284d9-9c59-4e98-9af3-810dd1c6bc12.png)
+![sixnav banner](https://user-images.githubusercontent.com/28021387/193900361-9b2e5df1-971c-453a-9383-e0d419485e5f.png)
 # Shamrock Sixnav Prototype Board
 This board is intended as a test platform for the development of an open-source knob
 with 6 degrees of freedom (6DOF), based on the ideas expressed in expired US patent
